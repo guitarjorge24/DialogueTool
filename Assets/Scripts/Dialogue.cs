@@ -6,8 +6,6 @@ using UnityEngine;
 public class Dialogue : ScriptableObject
 {
 	public string[] CharactersList;
-	//DialogueElement.Characters;
-
 	public List<DialogueElement> DialogueItems;
 }
 
