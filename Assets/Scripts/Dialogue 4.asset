@@ -12,5 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed766bb9062205c46b1e66e67aefceed, type: 3}
   m_Name: Dialogue 4
   m_EditorClassIdentifier: 
-  CharactersList: []
+  CharactersList:
+  - asdf
+  - asdfsdf
+  - asdff
+  - asdfsadf
+  - sd
+  - fsf
+  - fsfds
+  - sdfs
+  - fsafsdsf
   DialogueItems: []

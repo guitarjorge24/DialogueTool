@@ -16,11 +16,14 @@ MonoBehaviour:
   - Matt
   - Felix
   - Wendy
+  - a
+  - aa
+  - asd
   DialogueItems:
-  - Character: 0
+  - CharacterID: 0
     CharacterPosition: 0
     CharacterPic: {fileID: 0}
-    DialogueText: Hey watsup!
+    DialogueText: Just tryna stay away from the CORONA!
     DialogueTextStyle:
       m_Name: 
       m_Normal:
@@ -90,10 +93,10 @@ MonoBehaviour:
       m_StretchHeight: 0
     TextPlayBackSpeed: 0
     PlayBackSoundFile: {fileID: 0}
-  - Character: 1
+  - CharacterID: 1
     CharacterPosition: 0
     CharacterPic: {fileID: 0}
-    DialogueText: Just tryna stay away from the CORONA!
+    DialogueText: sadf
     DialogueTextStyle:
       m_Name: 
       m_Normal:
