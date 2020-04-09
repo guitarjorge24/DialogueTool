@@ -6,13 +6,13 @@ public class DialogueElement
 	// CharacterID is an index to the according character
 	public int CharacterID;
 
-	public enum Characters { CharacterA, CharacterB};
+	//public enum Characters { CharacterA, CharacterB}; //no longer needed
 	public enum AvatarPos { left, right };
 
 	[Header("CHARACTER")]
 	//public Characters Character;
 	public AvatarPos CharacterPosition;
-	public Texture2D CharacterPic;
+	public Sprite CharacterPic;
 
 	[Header("DIALOGUE")]
 	[Tooltip("What the character is saying")]

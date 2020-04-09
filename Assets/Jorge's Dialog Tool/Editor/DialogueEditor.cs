@@ -10,23 +10,20 @@ using UnityEngine;
 [CustomEditor(typeof(Dialogue))]
 public class DialogueEditor : Editor
 {
-    // This will be the serialized clone property of Dialogue.CharacterList
+    // Serialized clone property of Dialogue.CharacterList
     private SerializedProperty CharactersList;
 
-    // This will be the serialized clone property of Dialogue.DialogueItems
+    // Serialized clone property of Dialogue.DialogueItems
     private SerializedProperty DialogueItems;
 
-    // This is a little bonus from my side!
-    // These Lists are extremely more powerful then the default presentation of lists!
-    // you can/have to implement completely custom behavior of how to display and edit 
-    // the list elements
+    // Must implement completely custom behavior of how to display and edit ReorderableLists
     private ReorderableList charactersList;
     private ReorderableList dialogItemsList;
 
     // Reference to the actual Dialogue instance this Inspector belongs to
     private Dialogue dialogue;
 
-    // Called when the Inspector is opened / ScriptableObject is selected
+    // Called when the Inspector is opened (when the ScriptableObject is selected)
     private void OnEnable()
     {
         // Get the target as the type you are actually using
@@ -36,8 +33,7 @@ public class DialogueEditor : Editor
         CharactersList = serializedObject.FindProperty(nameof(Dialogue.CharactersList));
         DialogueItems = serializedObject.FindProperty(nameof(Dialogue.DialogueItems));
 
-        // Setup and configure the charactersList we will use to display the content of the CharactersList 
-        // in a nicer way
+        // Setup and configure the charactersList that will be used to display the content of the CharactersList 
         charactersList = new ReorderableList(serializedObject, CharactersList)
         {
             displayAdd = true,
@@ -115,8 +111,7 @@ public class DialogueEditor : Editor
 
         };
 
-        // Setup and configure the dialogItemsList we will use to display the content of the DialogueItems 
-        // in a nicer way
+        // Setup and configure the dialogItemsList that will be used to display the content of the DialogueItems 
         dialogItemsList = new ReorderableList(serializedObject, DialogueItems)
         {
             displayAdd = true,
@@ -135,6 +130,7 @@ public class DialogueEditor : Editor
                 // Get the nested property fields of the DialogueElement class
                 var character = element.FindPropertyRelative(nameof(DialogueElement.CharacterID));
                 var text = element.FindPropertyRelative(nameof(DialogueElement.DialogueText));
+                var characterPic = element.FindPropertyRelative(nameof(DialogueElement.CharacterPic));
 
                 var popUpHeight = EditorGUI.GetPropertyHeight(character);
                 // Get the existing character names as GuiContent[]
@@ -153,11 +149,23 @@ public class DialogueEditor : Editor
                 GUI.color = color;
                 rect.y += popUpHeight;
 
-                // Draw the text field
+
+                //Draw the Character Picture
+                var characterPicHeight = EditorGUI.GetPropertyHeight(characterPic);
+                EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, characterPicHeight), characterPic);
+
+                //#ToDo: how do I get the texture selected by user for characterPic to make a bigger image preview?
+
+                //EditorGUI.DrawPreviewTexture(new Rect(rect.x, rect.y, rect.width, characterPicHeight), characterPic.serializedObject.FindProperty(nameof(DialogueElement.CharacterPic)));
+
+
+                // Draw the Dialogue Text field
                 // since we use a PropertyField it will automatically recognize that this field is tagged [TextArea]
                 // and will choose the correct drawer accordingly
                 var textHeight = EditorGUI.GetPropertyHeight(text);
-                EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, textHeight), text);
+                EditorGUI.PropertyField(new Rect(rect.x, rect.y+20, rect.width, textHeight), text);
+
+
             },
 
             // Get the correct display height of elements in the list
@@ -167,10 +175,12 @@ public class DialogueEditor : Editor
             {
                 var element = DialogueItems.GetArrayElementAtIndex(index);
 
-                var character = element.FindPropertyRelative(nameof(DialogueElement.CharacterID));
-                var text = element.FindPropertyRelative(nameof(DialogueElement.DialogueText));
+                var characterName = element.FindPropertyRelative(nameof(DialogueElement.CharacterID));
+                var dialogueText = element.FindPropertyRelative(nameof(DialogueElement.DialogueText));
+                var characterPic = element.FindPropertyRelative(nameof(DialogueElement.CharacterPic));
 
-                return EditorGUI.GetPropertyHeight(character) + EditorGUI.GetPropertyHeight(text) + EditorGUIUtility.singleLineHeight;
+                //height of entire dialog items section
+                return EditorGUI.GetPropertyHeight(characterName) + EditorGUI.GetPropertyHeight(characterPic) + EditorGUI.GetPropertyHeight(dialogueText) + EditorGUIUtility.singleLineHeight;
             },
 
             // Overwrite what shall be done when an element is added via the +

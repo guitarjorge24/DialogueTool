@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Dialogue 1
   m_EditorClassIdentifier: 
   CharactersList:
-  - Arnold
+  - Arnie
   - Bart
   - Carol
   DialogueItems:
   - CharacterID: 0
     CharacterPosition: 0
-    CharacterPic: {fileID: 0}
+    CharacterPic: {fileID: 21300000, guid: 2f8ab5511cbf5ff408efb3d13520c23b, type: 3}
     DialogueText: I am better than Mental Ray
     DialogueTextStyle:
       m_Name: 
@@ -92,7 +92,7 @@ MonoBehaviour:
     PlayBackSoundFile: {fileID: 0}
   - CharacterID: 1
     CharacterPosition: 0
-    CharacterPic: {fileID: 0}
+    CharacterPic: {fileID: 21300000, guid: d7834b5103ec7494bac8c63a5e721326, type: 3}
     DialogueText: Ha! In your dreams, Arnie XD
     DialogueTextStyle:
       m_Name: 
@@ -165,7 +165,7 @@ MonoBehaviour:
     PlayBackSoundFile: {fileID: 0}
   - CharacterID: 2
     CharacterPosition: 0
-    CharacterPic: {fileID: 0}
+    CharacterPic: {fileID: 21300000, guid: 7deebfac667a6034e92a7ecb8fd45f5c, type: 3}
     DialogueText: Let him dream, Bart. Let 'im dream....
     DialogueTextStyle:
       m_Name: 
