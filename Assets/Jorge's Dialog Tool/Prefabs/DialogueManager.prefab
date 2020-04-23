@@ -47,3 +47,4 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 0}
   characterNameText: {fileID: 0}
   typingSpeed: 0.05
+  characterImage: {fileID: 0}
