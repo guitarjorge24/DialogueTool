@@ -274,6 +274,12 @@ PrefabInstance:
       propertyPath: characterImage
       value: 
       objectReference: {fileID: 417310313}
+    - target: {fileID: 2735228229704626857, guid: 0b037f93fd6efc84d86750150caca42c,
+        type: 3}
+      propertyPath: LoadedDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 9040210f27a4e7a4786e6ebfa3351213,
+        type: 2}
     - target: {fileID: 2735228229704626862, guid: 0b037f93fd6efc84d86750150caca42c,
         type: 3}
       propertyPath: m_LocalPosition.x
